@@ -3,4 +3,7 @@
     <string name="todo">TODO</string>
     <string name="sign_in">SIGN IN</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="jobCategory">CATEGORY</string>
+    <string name="jobcat">CATEGORY</string>
+    <string name="go_back">GO BACK</string>
 </resources>
