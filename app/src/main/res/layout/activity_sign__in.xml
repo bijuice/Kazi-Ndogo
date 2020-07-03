@@ -18,8 +18,8 @@
 
     <View
         android:id="@+id/secondView"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_width="414dp"
+        android:layout_height="52dp"
         android:layout_marginTop="148dp"
         android:background="@drawable/wave"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,30 +40,13 @@
         app:srcCompat="@drawable/ic_person1"
         android:contentDescription="@string/todo" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="240dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="32dp"
-        android:text="@string/already_have_an_account"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/person"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
-
     <EditText
         android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:autofillHints=""
         android:background="@drawable/round_borders"
         android:drawableStart="@drawable/ic_email"
@@ -82,10 +65,8 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:autofillHints=""
         android:background="@drawable/round_borders"
         android:drawableStart="@drawable/ic_lock"
@@ -104,17 +85,44 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:background="@drawable/round_signin"
         android:padding="16dp"
         android:text="@string/log_in"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="256dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/welcome_back"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="52dp"
+        android:clickable="true"
+        android:linksClickable="false"
+        android:text="@string/don_t_have_an_account"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogIn"
+        android:focusable="true" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

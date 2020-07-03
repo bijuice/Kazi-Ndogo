@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class Get_Started extends AppCompatActivity {
     //Animation after a user clicks register
 
-    private static int SPLASH_SCREEN=5000;
+    private static int SPLASH_SCREEN=3000;
 
     Animation topAnim, bottomAnim, bottomAnim2;
     ImageView image;
@@ -36,13 +36,6 @@ public class Get_Started extends AppCompatActivity {
         text.setAnimation(bottomAnim);
         text2.setAnimation(bottomAnim2);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(Get_Started.this,Main_Menu.class);
-                startActivity(intent);
-                finish();
-            }
-        }, SPLASH_SCREEN);
+
     }
 }
