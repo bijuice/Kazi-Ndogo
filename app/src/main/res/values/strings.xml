@@ -31,4 +31,8 @@
     <string name="category_name7">CATEGORY NAME</string>
     <string name="category_name">CATEGORY NAME</string>
     <string name="todo3">TODO</string>
+    <string name="job_listing">JOB LISTING</string>
+    <string name="jobid">Job ID</string>
+    <string name="location">Location</string>
+    <string name="todo5">TODO</string>
 </resources>
