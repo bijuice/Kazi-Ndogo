@@ -36,6 +36,14 @@ public class Get_Started extends AppCompatActivity {
         text.setAnimation(bottomAnim);
         text2.setAnimation(bottomAnim2);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Get_Started.this,Search.class);
+                startActivity(intent);
+                finish();
+            }
+        }, SPLASH_SCREEN);
 
     }
 }

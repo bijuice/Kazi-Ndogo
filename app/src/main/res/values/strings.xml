@@ -23,7 +23,6 @@
     <string name="listing">Listing</string>
     <string name="listing2">Listing</string>
     <string name="todo">TODO</string>
-    <string name="job_title">Job Title</string>
     <string name="job_description">Job Description</string>
     <string name="payout">Payout</string>
     <string name="contact_info">Contact Info</string>
@@ -33,6 +32,16 @@
     <string name="todo3">TODO</string>
     <string name="job_listing">JOB LISTING</string>
     <string name="jobid">Job ID</string>
-    <string name="location">Location</string>
     <string name="todo5">TODO</string>
+    <string name="job_details">Job Details...</string>
+    <string name="create_job">create job</string>
+    <string name="payment">Payment:</string>
+    <string name="job_title">Job Title</string>
+    <string name="location">Location</string>
+    <string name="job_creation">job creation</string>
+    <string name="job_creation1">JOB CREATION</string>
+    <string name="todo2">todo</string>
+    <string name="search">search</string>
+    <string name="search1">SEARCH</string>
+    <string name="todo4">todo1</string>
 </resources>
