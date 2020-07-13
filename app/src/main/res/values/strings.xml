@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">My Application1</string>
-    <string name="todo">TODO</string>
+    <string name="todo8">TODO</string>
     <string name="sign_in">SIGN IN</string>
     <string name="sign_up">SIGN UP</string>
     <string name="email">Email</string>
@@ -19,4 +19,20 @@
     <string name="jobCategory">CATEGORY</string>
     <string name="jobcat">CATEGORY</string>
     <string name="go_back">GO BACK</string>
+    <string name="job_id">Job ID</string>
+    <string name="listing">Listing</string>
+    <string name="listing2">Listing</string>
+    <string name="todo">TODO</string>
+    <string name="job_title">Job Title</string>
+    <string name="job_description">Job Description</string>
+    <string name="payout">Payout</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="todo1">TODO</string>
+    <string name="category_name7">CATEGORY NAME</string>
+    <string name="category_name">CATEGORY NAME</string>
+    <string name="todo3">TODO</string>
+    <string name="job_listing">JOB LISTING</string>
+    <string name="jobid">Job ID</string>
+    <string name="location">Location</string>
+    <string name="todo5">TODO</string>
 </resources>
