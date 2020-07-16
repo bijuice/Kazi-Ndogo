@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFF0"
-    tools:context=".MainActivity">
+    tools:context=".Create_Job">
 
 
     <TextView
@@ -14,11 +14,11 @@
         android:layout_height="86dp"
         android:background="@drawable/wave"
         android:gravity="center_horizontal"
-        android:hint="job creation"
+        android:hint="@string/job_creation"
         android:padding="14dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="JOB CREATION"
+        android:text="@string/job_creation1"
         android:textAlignment="center"
         android:textColor="#0A5687"
         android:textSize="26sp"
@@ -58,14 +58,15 @@
         app:layout_constraintHorizontal_bias="0.792"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.202"
+        android:importantForAutofill="no" />
 
     <ImageButton
         android:id="@+id/categoryBackbtn"
         android:layout_width="43dp"
         android:layout_height="43dp"
         android:background="@drawable/rounded_corners"
-        android:contentDescription="todo"
+        android:contentDescription="@string/todo2"
         app:layout_constraintBottom_toBottomOf="@+id/jobcatView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
@@ -79,7 +80,7 @@
         android:layout_width="290dp"
         android:layout_height="254dp"
         android:ems="10"
-        android:hint="Job Details..."
+        android:hint="@string/job_details"
         android:inputType="textMultiLine"
         android:lines="20"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +88,8 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
+        app:layout_constraintVertical_bias="0.756"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/createjob"
@@ -98,7 +100,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/job"
         android:padding="16dp"
-        android:text="create job"
+        android:text="@string/create_job"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,13 +120,14 @@
         app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.32"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/pay1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Payment:"
+        android:text="@string/payment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
@@ -136,7 +139,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Job Title"
+        android:text="@string/job_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
@@ -148,7 +151,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location"
+        android:text="@string/location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"

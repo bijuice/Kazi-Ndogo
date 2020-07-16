@@ -27,10 +27,23 @@ public class Sign_In extends AppCompatActivity {
             }
         });
 
+        LogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenSearch();
+            }
+        });
+
+
     }
 
     public void OpenSignUp(){
         Intent intent=new Intent(this,Sign_Up.class);
+        startActivity(intent);
+    }
+
+    public void OpenSearch(){
+        Intent intent=new Intent(this,Search.class);
         startActivity(intent);
     }
 

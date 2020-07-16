@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFF0"
-    tools:context=".Main2Activity">
+    android:background="#FFFFFF"
+    tools:context=".Search">
 
     <SearchView
         android:id="@+id/searchView"
@@ -23,11 +23,11 @@
         android:layout_height="86dp"
         android:background="@drawable/wave"
         android:gravity="center_horizontal"
-        android:hint="search"
+        android:hint="@string/search"
         android:padding="14dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="SEARCH"
+        android:text="@string/search1"
         android:textAlignment="center"
         android:textColor="#0A5687"
         android:textSize="26sp"
@@ -56,7 +56,7 @@
         android:layout_width="43dp"
         android:layout_height="43dp"
         android:background="@drawable/rounded_corners"
-        android:contentDescription="todo1"
+        android:contentDescription="@string/todo4"
         app:layout_constraintBottom_toBottomOf="@+id/jobcatView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
