@@ -77,7 +77,7 @@ public class  Create_Job  extends AppCompatActivity {
             public void onClick(View v) {
                 final String title = jobtitle.getText().toString().trim();
                 final String amount = paid.getText().toString().trim();
-                final String description = paid.getText().toString().trim();
+                final String description = jobdesc.getText().toString().trim();
                 final String location = spinner.getSelectedItem().toString();
 
 
