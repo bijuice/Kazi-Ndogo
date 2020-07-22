@@ -47,6 +47,19 @@ public class  Create_Job  extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("id");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         createjob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,14 +67,14 @@ public class  Create_Job  extends AppCompatActivity {
                 final String amount = paid.getText().toString().trim();
                 final String description = paid.getText().toString().trim();
                 final String location = spinner.getSelectedItem().toString();
-                final String id = "003";
+                final String id = "0003";
 
                 databaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(pNumber);
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                             jobhelper job = new jobhelper(title, location, amount,description,id );
-                        databaseReference.child("user").child(pNumber).child("jobs").child(id).setValue(job);
+                        databaseReference.child("jobs").child(id).setValue(job);
 
                     }
 
