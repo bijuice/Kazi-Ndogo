@@ -52,7 +52,7 @@ public class  Create_Job  extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.categories_array,android.R.layout.simple_spinner_item );
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner2.setAdapter(adapter2);
 
@@ -73,10 +73,6 @@ public class  Create_Job  extends AppCompatActivity {
             }
 
         });
-
-
-
-
 
 
 
