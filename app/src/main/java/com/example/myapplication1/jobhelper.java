@@ -1,15 +1,24 @@
 package com.example.myapplication1;
 
 public class jobhelper {
-    String title,location,payment,description,id;
+    String title,location,payment,description,id,category;
 
 
-    public jobhelper(String title, String location, String payment, String description, String id) {
+    public jobhelper(String title, String location, String payment, String description, String id, String category) {
         this.title = title;
         this.location = location;
         this.payment = payment;
         this.description = description;
         this.id = id;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getTitle() {

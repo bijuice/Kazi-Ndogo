@@ -22,7 +22,7 @@ import java.util.List;
 
 public class  Create_Job  extends AppCompatActivity {
     EditText jobtitle,paid,jobdesc;
-    Spinner spinner;
+    Spinner spinner,spinner2;
     Button createjob;
     DatabaseReference databaseReference;
 
@@ -39,6 +39,7 @@ public class  Create_Job  extends AppCompatActivity {
         paid = findViewById(R.id.paid);
         jobdesc = findViewById(R.id.jobdesc);
         spinner = findViewById(R.id.spinner);
+        spinner2 = findViewById(R.id.spinner2);
         createjob = findViewById(R.id.createjob);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -47,6 +48,13 @@ public class  Create_Job  extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
+
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.categories_array,android.R.layout.simple_spinner_item );
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner2.setAdapter(adapter2);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("idcount");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -79,13 +87,14 @@ public class  Create_Job  extends AppCompatActivity {
                 final String amount = paid.getText().toString().trim();
                 final String description = jobdesc.getText().toString().trim();
                 final String location = spinner.getSelectedItem().toString();
+                final String category = spinner2.getSelectedItem().toString();
 
 
                 databaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(pNumber);
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            jobhelper job = new jobhelper(title, location, amount,description,id[0]);
+                            jobhelper job = new jobhelper(title, location, amount,description,id[0],category);
                         databaseReference.child("jobs").child(id[0]).setValue(job);
 
 
