@@ -7,19 +7,24 @@
     android:background="#FFFFFF"
     tools:context=".Search">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="406dp"
-        android:layout_height="71dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225" />
 
+    <TextView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:gravity="bottom"
+        android:text="  Select a category..."
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/searchListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jobcatView"
+        tools:text="  Select a category..." />
 
     <TextView
         android:id="@+id/jobcatView"
-        android:layout_width="417dp"
+        android:layout_width="0dp"
         android:layout_height="86dp"
         android:background="@drawable/wave"
         android:gravity="center_horizontal"
@@ -27,7 +32,7 @@
         android:padding="14dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="@string/search1"
+        android:text="Main Menu"
         android:textAlignment="center"
         android:textColor="#0A5687"
         android:textSize="26sp"
@@ -39,39 +44,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/filter"
-        android:layout_width="107dp"
-        android:layout_height="33dp"
-        android:background="@drawable/filters"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
-
-    <ImageButton
-        android:id="@+id/categoryBackbtn"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:background="@drawable/rounded_corners"
-        android:contentDescription="@string/todo4"
-        app:layout_constraintBottom_toBottomOf="@+id/jobcatView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372"
-        app:srcCompat="?attr/homeAsUpIndicator" />
-
     <ListView
-        android:layout_width="409dp"
-        android:layout_height="466dp"
+        android:id="@+id/searchListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/createJobBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <Button
+        android:id="@+id/createJobBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/round_signin"
+        android:text="Create Job"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@id/searchListView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
