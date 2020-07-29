@@ -1,10 +1,12 @@
 package com.example.myapplication1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -24,6 +26,7 @@ public class  Create_Job  extends AppCompatActivity {
     EditText jobtitle,paid,jobdesc;
     Spinner spinner,spinner2;
     Button createjob;
+    ImageButton categoryBackbtn;
     DatabaseReference databaseReference;
 
 
@@ -41,6 +44,7 @@ public class  Create_Job  extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         spinner2 = findViewById(R.id.spinner2);
         createjob = findViewById(R.id.createjob);
+        categoryBackbtn = findViewById(R.id.categoryBackbtn);
 
         //Adapters linking to an XML resource file that populates the drop down menus for categories and locations
 
@@ -113,11 +117,17 @@ public class  Create_Job  extends AppCompatActivity {
             }
         });
 
+        categoryBackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prevActivity();
+            }
+        });
 
+    }
 
-
-
-
-
+    void prevActivity(){
+        Intent intent = new Intent(this, Search.class);
+        startActivity(intent);
     }
 }
