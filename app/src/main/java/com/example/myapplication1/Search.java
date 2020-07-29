@@ -71,5 +71,17 @@ public class Search extends AppCompatActivity {
                 }
             }
         });
+
+        createJobBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextActivity();
+            }
+        });
+    }
+
+    void nextActivity() {
+        Intent intent = new Intent(this, Create_Job.class);
+        startActivity(intent);
     }
 }
