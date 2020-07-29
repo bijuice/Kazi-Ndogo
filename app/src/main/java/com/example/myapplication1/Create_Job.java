@@ -115,9 +115,5 @@ public class  Create_Job  extends AppCompatActivity {
 
 
 
-
-
-
-
     }
 }
