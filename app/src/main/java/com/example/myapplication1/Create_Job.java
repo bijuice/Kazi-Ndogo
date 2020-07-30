@@ -63,7 +63,7 @@ public class  Create_Job  extends AppCompatActivity {
         spinner2.setAdapter(adapter2);
 
         //THis code gets the idcount which finds the current job id and ennumerates it +1 so each job ID is unique
-        //It is not working perfectly atm because it cannot save the idcount on the database
+        //It is not working perfectly atm because it cannot save the idcount on the database....
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("idcount");
         databaseReference.addValueEventListener(new ValueEventListener() {
