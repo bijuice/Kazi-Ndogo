@@ -46,25 +46,25 @@ public class Search extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (position==1) {
-                    Intent intent = new Intent(view.getContext(), JobCategories.class);
+                    Intent intent = new Intent(view.getContext(), JobCategoriesThree.class);
                     String cat = "art";
                     intent.putExtra(EXTRA_CATEGORY,cat);
                     startActivity(intent);
                 }
                 if (position==2) {
-                    Intent intent = new Intent(view.getContext(), JobCategories.class);
+                    Intent intent = new Intent(view.getContext(), JobCategoriesFour.class);
                     String cat = "housework";
                     intent.putExtra(EXTRA_CATEGORY,cat);
                     startActivity(intent);
                 }
                 if (position==3) {
-                    Intent intent = new Intent(view.getContext(), JobCategories.class);
+                    Intent intent = new Intent(view.getContext(), JobCategoriesOne.class);
                     String cat = "carpentry";
                     intent.putExtra(EXTRA_CATEGORY,cat);
                     startActivity(intent);
                 }
                 if (position==4) {
-                    Intent intent = new Intent(view.getContext(), JobCategories.class);
+                    Intent intent = new Intent(view.getContext(), JobCategoriesTwo.class);
                     String cat = "transport";
                     intent.putExtra(EXTRA_CATEGORY,cat);
                     startActivity(intent);

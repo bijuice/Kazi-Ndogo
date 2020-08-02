@@ -1,8 +1,6 @@
 package com.example.myapplication1;
 
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,19 +8,23 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class Job_Listing extends AppCompatActivity {
+public class Job_ListingTwo extends AppCompatActivity {
     EditText jobnameView, descriptionView;
     TextView payView, textView6, jobIDview, locationView, jobcatView;
     ImageButton dialerBtn, categoryBackbtn;
      FirebaseFirestore firestore;
 
-
+//this is for transport
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +43,13 @@ public class Job_Listing extends AppCompatActivity {
 
 
         firestore = FirebaseFirestore.getInstance();
-        DocumentReference documentReference = firestore.collection("Education").document("six");
+        DocumentReference documentReference = firestore.collection("Transport").document("four");
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 assert value != null;
                 jobnameView.setText(value.getString("title"));
-               // jobIDview.setText(value.getString("id"));
+                //jobIDview.setText(value.getString("id"));
                 descriptionView.setText(value.getString("description"));
                 locationView.setText(value.getString("location"));
                 payView.setText(value.getString("payment") + "Ksh.");
@@ -76,7 +78,7 @@ public class Job_Listing extends AppCompatActivity {
     }
 
     public void goprevious(){
-        Intent intent= new Intent(this, JobCategories.class);
+        Intent intent= new Intent(this, JobCategoriesTwo.class);
         startActivity(intent);
     }
     public void opendialer(){

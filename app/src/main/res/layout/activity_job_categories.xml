@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ListView
-        android:id="@+id/jobcatView"
+        android:id="@+id/jobcatViewList"
         android:layout_width="389dp"
         android:layout_height="551dp"
         android:layout_marginTop="6dp"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jobcatView"
+        app:layout_constraintTop_toBottomOf="@+id/jobcatViewList"
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="DuplicateIds,NotSibling" />
 

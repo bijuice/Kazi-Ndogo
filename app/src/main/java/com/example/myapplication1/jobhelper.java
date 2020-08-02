@@ -1,7 +1,7 @@
 package com.example.myapplication1;
 
 public class jobhelper {
-    String title,location,payment,description,id,category;
+    String title, location, payment, description, id, category;
 
 
     public jobhelper(String title, String location, String payment, String description, String id, String category) {
@@ -12,6 +12,10 @@ public class jobhelper {
         this.id = id;
         this.category = category;
     }
+
+    public jobhelper() {
+    }
+
 
     public String getCategory() {
         return category;
@@ -60,4 +64,7 @@ public class jobhelper {
     public void setId(String id) {
         this.id = id;
     }
+
+
+
 }
