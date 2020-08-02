@@ -40,7 +40,7 @@ public class JobCategories extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_categories);
-        jobcatView=findViewById(R.id.jobcatViewList);
+        jobcatView=findViewById(R.id.jobcatView);
         jobcatView_list=findViewById(R.id.jobcatViewList);
         categoryBackbtn=findViewById(R.id.categoryBackbtn);
 
