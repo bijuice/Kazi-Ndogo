@@ -7,7 +7,7 @@
     tools:context=".JobCategories">
 
     <TextView
-        android:id="@+id/jobcatViewList"
+        android:id="@+id/jobcatView"
         android:layout_width="410dp"
         android:layout_height="95dp"
         android:background="@drawable/wave2"

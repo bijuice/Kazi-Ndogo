@@ -1,29 +1,26 @@
 package com.example.myapplication1;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Job_Listing extends AppCompatActivity {
     EditText jobnameView, descriptionView;
     TextView payView, textView6, jobIDview, locationView, jobcatView;
     ImageButton dialerBtn, categoryBackbtn;
-    ImageView locationImg;
-    DatabaseReference databaseReference;
+     FirebaseFirestore firestore;
 
 
     @Override
@@ -31,43 +28,30 @@ public class Job_Listing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job__listing);
 
-        jobcatView=findViewById(R.id.jobcatViewList);
-        descriptionView=findViewById(R.id.descriptionView);
-        payView=findViewById(R.id.payView);
-        textView6=findViewById(R.id.textView6);
-        jobIDview=findViewById(R.id.jobIDview);
-        locationView=findViewById(R.id.locationView);
-        jobcatView=findViewById(R.id.jobcatViewList);
-        dialerBtn=findViewById(R.id.dialerBtn);
-        categoryBackbtn=findViewById(R.id.categoryBackbtn);
-        locationImg=findViewById(R.id.locationImg);
+        jobnameView=findViewById(R.id.jobnameView);
+        descriptionView = findViewById(R.id.descriptionView);
+        jobcatView = findViewById(R.id.jobcatView);
+        payView = findViewById(R.id.payView);
+        textView6 = findViewById(R.id.textView6);
+        jobIDview = findViewById(R.id.jobIDview);
+        locationView = findViewById(R.id.locationView);
 
-        Intent intent=getIntent();
-        String id=intent.getStringExtra(JobCategories.EXTRA_JOBID);
+        dialerBtn = findViewById(R.id.dialerBtn);
+        categoryBackbtn = findViewById(R.id.categoryBackbtn);
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("jobs").child(id);
-        databaseReference.addValueEventListener(new ValueEventListener() {
+
+        firestore = FirebaseFirestore.getInstance();
+        DocumentReference documentReference = firestore.collection("Education").document("six");
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String title=snapshot.child("title").getValue().toString();
-                String uid=snapshot.child("id").getValue().toString();
-                String description=snapshot.child("description").getValue().toString();
-                String location=snapshot.child("location").getValue().toString();
-                String pay=snapshot.child("payment").getValue().toString();
-                String contact=snapshot.child("number").getValue().toString();
-
-                jobnameView.setText(title);
-                jobIDview.setText(uid);
-                descriptionView.setText(description);
-                locationView.setText(location);
-                payView.setText(pay);
-                textView6.setText(contact);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                assert value != null;
+                jobnameView.setText(value.getString("title"));
+                jobIDview.setText(value.getString("id"));
+                descriptionView.setText(value.getString("description"));
+                locationView.setText(value.getString("location"));
+                payView.setText(value.getString("payment") + "Ksh.");
+                textView6.setText(value.getString("number"));
 
             }
         });
@@ -90,6 +74,7 @@ public class Job_Listing extends AppCompatActivity {
             }
         });
     }
+
     public void goprevious(){
         Intent intent= new Intent(this, JobCategories.class);
         startActivity(intent);

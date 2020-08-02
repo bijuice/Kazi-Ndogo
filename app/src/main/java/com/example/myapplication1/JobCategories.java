@@ -18,6 +18,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 import java.util.ArrayList;
 
@@ -26,18 +28,20 @@ public class JobCategories extends AppCompatActivity {
     TextView jobcatView;
     ListView jobcatView_list;
     ImageButton categoryBackbtn;
-    DatabaseReference databaseReference;
+    private DatabaseReference databaseReference;
 
     public static final String EXTRA_JOBID = "com.example.myapplication1.EXTRA_JOBID";
 
-    ArrayList<String> myArrayList = new ArrayList<>();
+    ArrayList<String> arrayList = new ArrayList<>();
+    ArrayAdapter<String> arrayAdapter;
+
+//this is for education
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_categories);
-
-        jobcatView=findViewById(R.id.jobcatViewList);
+        jobcatView=findViewById(R.id.jobcatView);
         jobcatView_list=findViewById(R.id.jobcatViewList);
         categoryBackbtn=findViewById(R.id.categoryBackbtn);
 
@@ -45,21 +49,22 @@ public class JobCategories extends AppCompatActivity {
         String job_name_category=intent.getStringExtra(Search.EXTRA_CATEGORY);
         jobcatView.setText(job_name_category);
 
-        final ArrayAdapter<String> adapter= new ArrayAdapter<>(JobCategories.this, android.R.layout.simple_list_item_1, myArrayList);
-        jobcatView_list.setAdapter(adapter);
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("jobs").child(job_name_category);
+        databaseReference=FirebaseDatabase.getInstance().getReference("Education");
+        arrayAdapter=new ArrayAdapter<>(JobCategories.this, android.R.layout.simple_list_item_1, arrayList);
+        jobcatView_list.setAdapter(arrayAdapter);
+
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String value=snapshot.getValue(String.class);
-                myArrayList.add(value);
-                adapter.notifyDataSetChanged();
+                String value= snapshot.getValue(String.class);
+                arrayList.add(value);
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -85,19 +90,18 @@ public class JobCategories extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position==0){
                     Intent intent1= new Intent(view.getContext(), Job_Listing.class);
-                    intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
                     startActivity(intent1);
 
 
                 }
                 if(position==1){
-                    Intent intent1= new Intent(view.getContext(), Job_Listing.class);
-                    intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
+                    Intent intent1= new Intent(view.getContext(), Job_Listing_edu3.class);
+                    // intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
                     startActivity(intent1);
                 }
                 if(position==2){
-                    Intent intent1= new Intent(view.getContext(), Job_Listing.class);
-                    intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
+                    Intent intent1= new Intent(view.getContext(), Job_Listing_edu2.class);
+                    // intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
                     startActivity(intent1);
                 }
 
@@ -107,7 +111,7 @@ public class JobCategories extends AppCompatActivity {
         categoryBackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               goBack();
+                goBack();
             }
         });
 
