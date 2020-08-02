@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.431" />
 
     <TextView
-        android:id="@+id/jobcatView"
+        android:id="@+id/jobcatViewList"
         android:layout_width="417dp"
         android:layout_height="86dp"
         android:background="@drawable/wave"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jobcatView"
+        app:layout_constraintTop_toBottomOf="@+id/jobcatViewList"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
@@ -80,7 +80,7 @@
         android:layout_height="43dp"
         android:background="@drawable/rounded_corners"
         android:contentDescription="@string/todo2"
-        app:layout_constraintBottom_toBottomOf="@+id/jobcatView"
+        app:layout_constraintBottom_toBottomOf="@+id/jobcatViewList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"

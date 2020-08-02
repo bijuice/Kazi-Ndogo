@@ -1,8 +1,6 @@
 package com.example.myapplication1;
 
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,13 +8,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class Job_Listing extends AppCompatActivity {
+public class Job_ListingFour extends AppCompatActivity {
     EditText jobnameView, descriptionView;
     TextView payView, textView6, jobIDview, locationView, jobcatView;
     ImageButton dialerBtn, categoryBackbtn;
@@ -41,7 +43,7 @@ public class Job_Listing extends AppCompatActivity {
 
 
         firestore = FirebaseFirestore.getInstance();
-        DocumentReference documentReference = firestore.collection("Education").document("six");
+        DocumentReference documentReference = firestore.collection("Housework").document("eight");
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -76,7 +78,7 @@ public class Job_Listing extends AppCompatActivity {
     }
 
     public void goprevious(){
-        Intent intent= new Intent(this, JobCategories.class);
+        Intent intent= new Intent(this, JobCategoriesFour.class);
         startActivity(intent);
     }
     public void opendialer(){

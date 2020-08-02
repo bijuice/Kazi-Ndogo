@@ -1,9 +1,5 @@
 package com.example.myapplication1;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,16 +9,19 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 import java.util.ArrayList;
 
-public class JobCategories extends AppCompatActivity {
+public class JobCategoriesFour extends AppCompatActivity {
 
     TextView jobcatView;
     ListView jobcatView_list;
@@ -49,8 +48,8 @@ public class JobCategories extends AppCompatActivity {
         jobcatView.setText(job_name_category);
 
 
-        databaseReference=FirebaseDatabase.getInstance().getReference("Education");
-        arrayAdapter=new ArrayAdapter<>(JobCategories.this, android.R.layout.simple_list_item_1, arrayList);
+        databaseReference=FirebaseDatabase.getInstance().getReference("Housework");
+        arrayAdapter=new ArrayAdapter<>(JobCategoriesFour.this, android.R.layout.simple_list_item_1, arrayList);
         jobcatView_list.setAdapter(arrayAdapter);
 
         databaseReference.addChildEventListener(new ChildEventListener() {
@@ -88,18 +87,18 @@ public class JobCategories extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position==0){
-                    Intent intent1= new Intent(view.getContext(), Job_Listing.class);
+                    Intent intent1= new Intent(view.getContext(), Job_ListingFour.class);
                     startActivity(intent1);
 
 
                 }
                 if(position==1){
-                    Intent intent1= new Intent(view.getContext(), Job_Listing_edu3.class);
+                    Intent intent1= new Intent(view.getContext(), Job_ListingFour.class);
                     // intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
                     startActivity(intent1);
                 }
                 if(position==2){
-                    Intent intent1= new Intent(view.getContext(), Job_Listing_edu2.class);
+                    Intent intent1= new Intent(view.getContext(), Job_ListingFour.class);
                     // intent1.putExtra(EXTRA_JOBID, jobcatView_list.getItemIdAtPosition(position));
                     startActivity(intent1);
                 }
