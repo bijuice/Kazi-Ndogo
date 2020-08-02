@@ -33,7 +33,7 @@ public class Job_Listing extends AppCompatActivity {
         jobcatView = findViewById(R.id.jobcatViewList);
         payView = findViewById(R.id.payView);
         textView6 = findViewById(R.id.textView6);
-        jobIDview = findViewById(R.id.jobIDview);
+        //jobIDview = findViewById(R.id.jobIDview);
         locationView = findViewById(R.id.locationView);
 
         dialerBtn = findViewById(R.id.dialerBtn);
@@ -47,7 +47,7 @@ public class Job_Listing extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 assert value != null;
                 jobnameView.setText(value.getString("title"));
-                jobIDview.setText(value.getString("id"));
+               // jobIDview.setText(value.getString("id"));
                 descriptionView.setText(value.getString("description"));
                 locationView.setText(value.getString("location"));
                 payView.setText(value.getString("payment") + "Ksh.");
