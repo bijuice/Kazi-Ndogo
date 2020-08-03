@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,7 +36,8 @@ public class  Create_Job  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_job);
 
-        final String pNumber = "0712345678";
+        Intent intent = getIntent();
+        final String pNumber=intent.getStringExtra(Sign_In.EXTRA_NUMBER);
         final String[] id = new String[1];
 
         jobtitle = findViewById(R.id.jobtitle);
@@ -105,8 +107,8 @@ public class  Create_Job  extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                             jobhelper job = new jobhelper(title, location, amount,description,id[0],category);
                         databaseReference.child("jobs").child(id[0]).setValue(job);
-
-
+                        Toast.makeText(Create_Job.this, "Job Created Successfully!", Toast.LENGTH_SHORT);
+                        prevActivity();
                     }
 
                     @Override

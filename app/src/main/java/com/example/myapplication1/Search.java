@@ -16,6 +16,8 @@ import org.w3c.dom.Text;
 
 public class Search extends AppCompatActivity {
     public static final String EXTRA_CATEGORY = "com.example.TransferInfo.EXTRA_CATEGORY";
+    public static final String EXTRA_NUMBER = "com.example.TransferInfo.EXTRA_NUMBER";
+
 
     ListView searchListView;
     Button createJobBtn;
@@ -29,6 +31,9 @@ public class Search extends AppCompatActivity {
         createJobBtn = findViewById(R.id.createJobBtn);
         searchListView = findViewById(R.id.searchListView);
         searchView = findViewById(R.id.searchView);
+
+        Intent intent = getIntent();
+        final String number=intent.getStringExtra(Sign_In.EXTRA_NUMBER);
 
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.categories_array,android.R.layout.simple_list_item_1);
@@ -75,13 +80,15 @@ public class Search extends AppCompatActivity {
         createJobBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextActivity();
+                nextActivity(number);
             }
         });
     }
 
-    void nextActivity() {
+    void nextActivity(String number) {
+
         Intent intent = new Intent(this, Create_Job.class);
+        intent.putExtra(EXTRA_NUMBER,number);
         startActivity(intent);
     }
 }
