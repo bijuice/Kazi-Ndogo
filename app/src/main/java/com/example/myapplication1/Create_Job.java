@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +30,9 @@ public class  Create_Job  extends AppCompatActivity {
     Button createjob;
     ImageButton categoryBackbtn;
     DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+
+
 
 
     @Override
@@ -47,6 +51,7 @@ public class  Create_Job  extends AppCompatActivity {
         spinner2 = findViewById(R.id.spinner2);
         createjob = findViewById(R.id.createjob);
         categoryBackbtn = findViewById(R.id.categoryBackbtn);
+        firebaseAuth=FirebaseAuth.getInstance();
 
         //Adapters linking to an XML resource file that populates the drop down menus for categories and locations
 
@@ -107,7 +112,8 @@ public class  Create_Job  extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                             jobhelper job = new jobhelper(title, location, amount,description,id[0],category);
                         databaseReference.child("jobs").child(id[0]).setValue(job);
-                        Toast.makeText(Create_Job.this, "Job Created Successfully!", Toast.LENGTH_SHORT);
+
+                        Toast.makeText(Create_Job.this, "Job Created Successfully!", Toast.LENGTH_SHORT).show();
                         prevActivity();
                     }
 
@@ -129,7 +135,7 @@ public class  Create_Job  extends AppCompatActivity {
     }
 
     void prevActivity(){
-        Intent intent = new Intent(this, Search.class);
+        Intent intent = new Intent(Create_Job.this, Search.class);
         startActivity(intent);
     }
 }

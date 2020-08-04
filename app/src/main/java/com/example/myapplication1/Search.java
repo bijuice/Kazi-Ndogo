@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import org.w3c.dom.Text;
 
 public class Search extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class Search extends AppCompatActivity {
     ListView searchListView;
     Button createJobBtn;
     TextView searchView;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,9 @@ public class Search extends AppCompatActivity {
         createJobBtn = findViewById(R.id.createJobBtn);
         searchListView = findViewById(R.id.searchListView);
         searchView = findViewById(R.id.searchView);
+
+
+        firebaseAuth=FirebaseAuth.getInstance();
 
         Intent intent = getIntent();
         final String number=intent.getStringExtra(Sign_In.EXTRA_NUMBER);
@@ -83,6 +89,7 @@ public class Search extends AppCompatActivity {
                 nextActivity(number);
             }
         });
+
     }
 
     void nextActivity(String number) {
@@ -91,4 +98,7 @@ public class Search extends AppCompatActivity {
         intent.putExtra(EXTRA_NUMBER,number);
         startActivity(intent);
     }
+
+
+
 }
