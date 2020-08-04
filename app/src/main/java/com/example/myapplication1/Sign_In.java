@@ -5,26 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseError;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class Sign_In extends AppCompatActivity {
 
     public static final String EXTRA_NUMBER = "com.example.TransferInfo.EXTRA_NUMBER";
 
     TextView textView5;
-    EditText email,password;
+    EditText email,password, phone;
     Button LogIn;
+    FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
 
 
@@ -37,73 +40,72 @@ public class Sign_In extends AppCompatActivity {
         LogIn=findViewById(R.id.LogIn);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        phone=findViewById(R.id.phone);
+
+        firebaseAuth=FirebaseAuth.getInstance();
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-
+//when user clicks login, it uses inbuilt authentication of firebase to create a user with a username and password
+        //we have added another mechanism for authentication using phone number and so we have implemented two-factor authentication
         LogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String unum = email.getText().toString().trim();
                 final String upass = password.getText().toString().trim();
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("User").child(unum);
-                databaseReference.addValueEventListener(new ValueEventListener() {
+                final String uphone=phone.getText().toString().trim();
+
+                if (TextUtils.isEmpty(unum)) {
+                    email.setError("Username is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(upass)) {
+                    password.setError("Password is required");
+                    return;
+                }
+                if(TextUtils.isEmpty(uphone)){
+                    phone.setError("Phone number is required");
+                }
+//user is created here
+                firebaseAuth.signInWithEmailAndPassword(unum, upass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        try {
-                            String name = snapshot.child("number").getValue().toString();
-                            String pass = snapshot.child("password").getValue().toString();
-                            if (upass.equals(pass)){
-                                OpenSearch();
-                            } else {
-                                Toast.makeText(Sign_In.this, "Invalid username or password!", Toast.LENGTH_SHORT);
-
-                            }
-                        } catch (NullPointerException e){
-                            System.out.println(FirebaseError.ERROR_USER_NOT_FOUND);
-                            Toast.makeText(Sign_In.this, "Invalid username or password!", Toast.LENGTH_SHORT);
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Sign_In.this, "Login Success!", Toast.LENGTH_SHORT).show();
+                            OpenSearch();
                         }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
+                        else{
+                            Toast.makeText(Sign_In.this, "Invalid Details!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
-
             }
-        });
+                public void OpenSearch() {
+                    String number = phone.getText().toString();
+                    Intent intent = new Intent(Sign_In.this, Search.class);
+                    intent.putExtra(EXTRA_NUMBER, number);
+                    startActivity(intent);
+                }
+            });
 
 
-        textView5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenSignUp();
-            }
-        });
-
-        LogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenSearch();
-            }
-        });
-
-
+              textView5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    OpenSignUp();
+                }
+            });
     }
 
-    public void OpenSignUp(){
-        Intent intent=new Intent(this,Sign_Up.class);
-        startActivity(intent);
-    }
 
-    public void OpenSearch(){
-        String number = email.getText().toString();
-        Intent intent=new Intent(this,Search.class);
-        intent.putExtra(EXTRA_NUMBER,number);
-        startActivity(intent);
-    }
 
-}
+            public void OpenSignUp() {
+                Intent intent = new Intent(Sign_In.this, Sign_Up.class);
+                startActivity(intent);
+            }
+
+
+        }
+
+
+

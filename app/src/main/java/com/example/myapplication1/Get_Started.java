@@ -39,7 +39,7 @@ public class Get_Started extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Get_Started.this,Search.class);
+                Intent intent = new Intent(Get_Started.this,Sign_In.class);
                 startActivity(intent);
                 finish();
             }
